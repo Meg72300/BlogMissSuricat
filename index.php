@@ -4,12 +4,11 @@ session_start();
 include_once('library/PDOFactory.php');
 include_once('models/entities/Personne.php');
 include_once('models/entities/Client.php');
-include_once('models/entities/User.php');
 include_once('models/entities/Commande.php');
 include_once('models/entities/Produit.php');
 include_once('models/repositories/ProduitRepository.php');
 include_once('models/repositories/ClientRepository.php');
-include_once('models/repositories/UserRepository.php');
+include_once('models/repositories/PersonneRepository.php');
 include_once('models/repositories/CommandeRepository.php');
 
 //On récupère un objet PDO une fois pour toutes pour dialoguer avec la bdd
@@ -29,13 +28,13 @@ if (isset($_REQUEST['action'])) {
 switch ($action) {
 
 	case "verifLogin":
-		$userRepo = new UserRepository();
-		$user = $userRepo->getUser($pdo, $_POST['login'], $_POST['pwd']);
+		$personneRepo = new PersonneRepository();
+		$personne = $personneRepo->getPersonne($pdo, $_POST['login'], $_POST['pwd']);
 		
-		if($user) {
-			$_SESSION['login'] = $user->getLogin();
-			$_SESSION['nom'] = $user->getNom();
-			$_SESSION['prenom'] = $user->getPrenom();
+		if($personne) {
+			$_SESSION['login'] = $personne->getLogin();
+			$_SESSION['nom'] = $personne->getNom();
+			$_SESSION['prenom'] = $personne->getPrenom();
 			//On prépare la vue à afficher avec les données dont elle a besoin
 			$clientRepo = new ClientRepository();
 			$listeClients = $clientRepo->getAll($pdo);

@@ -1,6 +1,6 @@
 <?php
 
-abstract class Personne 
+class Personne 
 {
 	protected $id;
 	protected $civilite;
@@ -10,6 +10,8 @@ abstract class Personne
 	protected $adresse;
 	protected $cp;
 	protected $ville;
+	private $login;
+	private $password;
 
 	public function getId() {
 		return $this->id;
@@ -73,5 +75,20 @@ abstract class Personne
 
 	public function setVille($ville) {
 		$this->ville = $ville;
+	}
+		public function getLogin() {
+		return $this->login;
+	}
+
+	public function setLogin($login) {
+		$this->login = $login;
+	}
+
+	public function getPassword() {
+		return $this->password;
+	}
+
+	public function setPassword($password) {
+		$this->password = $password;
 	}
 }
