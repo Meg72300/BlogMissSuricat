@@ -115,10 +115,12 @@ CREATE TABLE `personne` (
   `civilite` varchar(8) NOT NULL,
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
-  `date_naissance` date DEFAULT NULL,
-  `adresse` varchar(255) DEFAULT NULL,
-  `code_postal` int(5) DEFAULT NULL,
-  `ville` varchar(100) DEFAULT NULL
+  `date_naissance` date NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `code_postal` int(5) NOT NULL,
+  `ville` varchar(100) NOT NULL,
+  `login` varchar(30) NOT NULL,
+  `password`varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -183,30 +185,6 @@ INSERT INTO `statut` (`id`, `libelle`) VALUES
 (3, 'annulée'),
 (4, 'retournée'),
 (5, 'remboursée');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(30) NOT NULL,
-  `prenom` varchar(30) NOT NULL,
-  `login` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `user`
---
-
-INSERT INTO `user` (`id`, `nom`, `prenom`, `login`, `password`) VALUES
-(1, 'gauchard', 'yoann', 'yoann72', 'passyoann'),
-(2, 'hamelin', 'paul', 'paul72', 'passpaul'),
-(3, 'durand', 'pierre', 'pierre72', 'passpierre');
 
 -- --------------------------------------------------------
 
