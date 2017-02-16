@@ -198,6 +198,12 @@ switch ($action) {
 		$vueAAfficher = "views/listProduit.php";
 		break;
 
+	case 'formAddCommande':
+		$produitRepo = new ProduitRepository();
+		$listProduit = $produitRepo->getAll($pdo);
+		$vueAAfficher = "views/formAddCommande.php";
+		break;
+
 	//Jeu d'instructions appelé lorsque aucune action n'est renseignée dans l'url
 	default:
 		if(empty($_SESSION['login'])) {
